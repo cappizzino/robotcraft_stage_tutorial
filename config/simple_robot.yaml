@@ -1,0 +1,3 @@
+active_robot: "robot_0"
+
+available_robots: ["robot_0", "", "", ""]
