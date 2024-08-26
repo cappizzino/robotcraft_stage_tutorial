@@ -1,0 +1,17 @@
+<launch>
+
+  <rosparam file="$(find stage_tutorial)/params/move_base/move_base_params.yaml" 
+        ns="move_base" command="load" subst_value="True"/>
+
+  <!-- Launch the move_base node -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <rosparam file="$(find stage_tutorial)/params/move_base/common_costmap_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find stage_tutorial)/params/move_base/common_costmap_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find stage_tutorial)/params/move_base/local_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find stage_tutorial)/params/move_base/global_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find stage_tutorial)/params/move_base/planners.yaml" command="load"/>
+    <rosparam file="$(find stage_tutorial)/params/move_base/controllers.yaml" command="load"/>
+    <rosparam file="$(find stage_tutorial)/params/move_base/recovery_behaviors.yaml" command="load"/>
+  </node>
+
+</launch>

@@ -28,7 +28,7 @@
   </node>
 
   <!-- Launch the map_server to provide the static map -->
-  <node pkg="map_server" type="map_server" name="map_server" output="screen" args="/home/ingeniarius/simulation_ws/maps/map.yaml">
+  <node pkg="map_server" type="map_server" name="map_server" output="screen" args="/home/ingeniarius/ROS_programs/src/robotcraft_stage_tutorial/maps_slam/map.yaml">
   </node>
 
 </launch>

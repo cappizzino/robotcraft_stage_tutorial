@@ -1,0 +1,58 @@
+footprint: [[0.1, -0.1], [0.1, 0.1], [-0.1, 0.1], [-0.1, -0.1]]
+footprint_padding: 0.0
+make_plan_clear_costmap: false        # parameters of make_plan service
+make_plan_add_unreachable_goal: false # true, parameters of make_plan service
+
+local_static_layer:
+  # Whether to apply this plugin or not
+  enabled: true
+  # Only subscribe to the first message on the map topic, ignoring all subsequent messages
+  first_map_only: false
+  # The value for which a cost should be considered unknown when reading in a map from the map server. If the costmap is not tracking unknown space, costs of this value will be considered occupied. A value of zero also results in this parameter being unused.       
+  unknown_cost_value: -1
+  # The threshold value at which to consider a cost lethal when reading in a map from the map server.
+  lethal_cost_threshold: 100
+  # In addition to map_topic, also subscribe to map_topic + "_updates"
+  subscribe_to_updates: true
+  # If true, unknown values in the map messages are translated directly to the layer. Otherwise, unknown values in the map message are translated as FREE_SPACE in the layer.
+  track_unknown_space: true
+  # Only matters if the static layer is not the bottom layer. If true, only the maximum value will be written to the master costmap
+  use_maximum: false
+  # If true, translates all map message values to NO_INFORMATION/FREE_SPACE/LETHAL_OBSTACLE (three values). If false, a full spectrum of intermediate values is possible.   
+  trinary_costmap: true     
+  map_topic: /map
+
+global_static_layer:
+  # Whether to apply this plugin or not
+  enabled: true
+  # Only subscribe to the first message on the map topic, ignoring all subsequent messages
+  first_map_only: false
+  # The value for which a cost should be considered unknown when reading in a map from the map server. If the costmap is not tracking unknown space, costs of this value will be considered occupied. A value of zero also results in this parameter being unused.       
+  unknown_cost_value: -1
+  # The threshold value at which to consider a cost lethal when reading in a map from the map server.
+  lethal_cost_threshold: 100
+  # In addition to map_topic, also subscribe to map_topic + "_updates"
+  subscribe_to_updates: true
+  # If true, unknown values in the map messages are translated directly to the layer. Otherwise, unknown values in the map message are translated as FREE_SPACE in the layer.
+  track_unknown_space: true
+  # Only matters if the static layer is not the bottom layer. If true, only the maximum value will be written to the master costmap
+  use_maximum: false
+  # If true, translates all map message values to NO_INFORMATION/FREE_SPACE/LETHAL_OBSTACLE (three values). If false, a full spectrum of intermediate values is possible.   
+  trinary_costmap: true     
+  map_topic: /map
+
+local_inflation_layer:
+  # Whether to apply this plugin or not
+  enabled: true
+  # Exponential rate at which the obstacle cost drops off (default: 10)
+  cost_scaling_factor: 10
+  # Max. distance from an obstacle at which costs are incurred for planning paths (min » costmap resolution)
+  inflation_radius: 0.1
+
+global_inflation_layer:
+  # Whether to apply this plugin or not
+  enabled: true
+  # Exponential rate at which the obstacle cost drops off (default: 10)
+  cost_scaling_factor: 10
+  # Max. distance from an obstacle at which costs are incurred for planning paths (min » costmap resolution)
+  inflation_radius: 0.2

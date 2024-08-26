@@ -1,0 +1,7 @@
+recovery_behaviors:
+  - name: rotate_recovery
+    type: rotate_recovery/RotateRecovery
+
+rotate_recovery:
+  sim_granularity: 0.017
+  frequency: 20.0

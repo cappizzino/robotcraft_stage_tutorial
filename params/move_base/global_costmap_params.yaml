@@ -1,0 +1,18 @@
+global_costmap:
+  global_frame: map
+  robot_frame: base_link
+  robot_base_frame: base_link
+  transform_tolerance: 1.0
+  update_frequency: 2.0
+  publish_frequency: 2.0
+  rolling_window: true
+  width: 10.0
+  height: 10.0
+  resolution: 0.1
+  origin_x: 0.0
+  origin_y: 0.0
+  always_send_full_costmap: true
+
+  plugins:
+    - { name: global_static_layer, type: "costmap_2d::StaticLayer" }
+    - { name: global_inflation_layer, type: "costmap_2d::InflationLayer" }

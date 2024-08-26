@@ -1,0 +1,54 @@
+GlobalPlanner:
+  # Lethal Cost (dynamic reconfigure)
+  lethal_cost: 253  # --- default ---
+
+  # Neutral Cost (dynamic reconfigure)
+  neutral_cost: 50  # --- default ---
+
+  # Factor to multiply each cost from costmap by (dynamic reconfigure)
+  cost_factor: 0.8  # *** change ***
+
+  # Specifies whether or not to visualize the potential area computed via a PointCloud2.
+  visualize_potential: true # --- default ---
+
+  # Publish Potential Costmap (dynamic reconfigure)
+  publish_potential: true # --- default ---
+
+  # How to set the orientation of each point (dynamic reconfigure)
+  # None=0, Forward=1, Interpolate=2, ForwardThenInterpolate=3, 
+  # Backward=4, Leftward=5, Rightward=6
+  orientation_mode: 1 # --- default ---
+
+  # What window to use to determine the orientation based on the 
+  # position derivative specified by the orientation mode (dynamic reconfigure) 
+  orientation_window_size: 1  # --- default ---
+
+  # If for some reason, you want global_planner to exactly 
+  # mirror the behavior of navfn, set this to true 
+  old_navfn_behavior: false # --- default ---
+
+  # If true, create a path that follows the grid boundaries. 
+  # Otherwise, use a gradient descent method. 
+  use_grid_path: false  # --- default ---
+
+  # If true, use the quadratic approximation of the potential. 
+  # Otherwise, use a simpler calculation. 
+  use_quadratic: true # *** change ***
+
+  # If true, use dijkstra's algorithm. 
+  # Otherwise, A*.
+  use_dijkstra: true  # --- default ---
+
+  # A tolerance on the goal point for the planner. 
+  # The planner will attempt to create a plan that is as close to 
+  # the specified goal as possible but no further than default_tolerance away
+  default_tolerance: 1  # *** change ***
+
+  # Specifies whether or not to allow the planner to create plans that traverse unknown space. NOTE: if you are using a layered costmap_2d costmap with a voxel or obstacle layer, you must also set the track_unknown_space param for that layer to be true, or it will convert all your unknown space to free space (which planner will then happily go right through).
+  allow_unknown: false  # *** change ***
+
+  # Outlines the global costmap with lethal obstacles. 
+  # For the usage of a non static (rolling window) global costmap 
+  # this needs to be set to fals
+  outline_map: false  # *** change ***
+
